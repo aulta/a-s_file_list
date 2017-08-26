@@ -8,7 +8,8 @@ $config = array(
     'output_path' => '',
     'target_dir' => '',
     'ext_pattern' => '',
-    'with_sub_dir' => true
+    'with_sub_dir' => true,
+    'output_pattern' => 'full', // dir_name, file_name, full
 );
 
 // 出力パス
@@ -22,5 +23,8 @@ $config['ext_pattern'] = '/(\.xls|\.xlsx)\z/';
 
 // サブディレクトリを探索するか
 $config['with_sub_dir'] = true;
+
+// 出力パターン
+$config['output_pattern'] = 'full';
 
 

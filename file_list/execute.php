@@ -71,6 +71,11 @@ function execute($path)
 
     $ret = array();
 
+    // 出力パターンがディレクトリ名のとき
+    if ($config['output_pattern'] === 'dir_name') {
+        $ret[] = $path;
+    }
+
     // パスを指定してディレクトリとファイルの一覧を取得
     $path_list = \aulta\scripts\getDirectoryAndFile($path);
 
@@ -84,6 +89,11 @@ function execute($path)
         }
     }
 
+    // 出力パターンがディレクトリ名のとき
+    if ($config['output_pattern'] === 'dir_name') {
+        return $ret;
+    }
+
     // ファイル一覧
     foreach ($path_list['file'] as $file_name) {
 
@@ -95,7 +105,18 @@ function execute($path)
         }
 
         // リストに追加
-        $ret[] = $file_name;
+        if ($config['output_pattern'] === 'file_name') {
+
+            // ファイル名のみ
+            $ret[] = $file_name;
+
+        } else {
+
+            // フルパス
+            $ret[] = $path . DIRECTORY_SEPARATOR . $file_name;
+
+        }
+
     }
 
     return $ret;
