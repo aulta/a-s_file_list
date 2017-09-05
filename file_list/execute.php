@@ -71,8 +71,8 @@ function execute($path, $sub_dir_count)
 
     $ret = array();
 
-    // 出力パターンがディレクトリ名のとき
-    if ($config['output_pattern'] === 'dir_name') {
+    // 出力パターンが「ファイル名」でないとき
+    if ($config['output_pattern'] !== 'file_name') {
         $ret[] = $path;
     }
 
