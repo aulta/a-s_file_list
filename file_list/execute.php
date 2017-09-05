@@ -10,7 +10,7 @@ namespace aulta\scripts;
  * @link https://aulta.co.jp/
  * @license https://aulta.co.jp/licensed.html
  * @since PHP 5.3.0
- * @version 0.0.1 (2017-08-19 : 2017-08-19)
+ * @version 0.0.2 (2017-08-19 : 2017-09-05)
  * @access public
  */
 
@@ -67,6 +67,11 @@ $config = \aulta\scripts\checkConfig($config, array(
         'type' => 'string'
     ),
 
+    // 出力フォーマット
+    'output_format' => array(
+        'type' => 'string'
+    ),
+
     // 取得対象のパスを出力に含めるか
     'with_target_dir' => array(
         'type' => 'bool'
@@ -83,6 +88,18 @@ if ( ! $config['with_target_dir']) {
             $list[$i] = mb_substr($line, mb_strlen($config['target_dir']));
         }
     }
+}
+
+// 出力フォーマット
+switch($config['output_format']) {
+
+    case 'hierarchy':
+        foreach($list as $i => $line) {
+            $c = substr_count($line, '/');
+            $list[$i] = str_repeat("\t", $c) . '/' . basename($line);
+        }
+        break;
+
 }
 
 // 出力

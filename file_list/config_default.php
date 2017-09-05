@@ -20,7 +20,15 @@ $config = array(
     'sub_dir_hierarchy_count' => 999,
 
     // 出力パターン
-    'output_pattern' => 'full', // dir_name, file_name, full
+    // dir_name  : ディレクトリを対象に出力します
+    // file_name : ファイルを対象に出力します
+    // full      : ディレクトリ・ファイルを出力します
+    'output_pattern' => 'full',
+
+    // 出力フォーマット
+    //   string    : パスをそのまま出力します
+    //   hierarchy : 階層ごとに字下げして出力します
+    'output_format' => 'string',
 
     // 取得対象のパスを出力に含めるか
     'with_target_dir' => true,
@@ -40,6 +48,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'output_format' => 'string', // string, hierarchy
     'with_target_dir' => true,
 );
 
@@ -53,6 +62,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'output_format' => 'string', // string, hierarchy
     'with_target_dir' => true,
 );
 
@@ -66,6 +76,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'output_format' => 'string', // string, hierarchy
     'with_target_dir' => true,
 );
 
@@ -79,6 +90,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'output_format' => 'string', // string, hierarchy
     'with_target_dir' => true,
 );
 
@@ -92,6 +104,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'output_format' => 'string', // string, hierarchy
     'with_target_dir' => true,
 );
 
