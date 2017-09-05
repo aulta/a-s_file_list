@@ -50,13 +50,13 @@ $config = \aulta\scripts\checkConfig($config, array(
     'ext_pattern' => array(
         'type' => 'string'
     ),
-    'with_sub_dir' => array(
-        'type' => 'bool'
+    'sub_dir_hierarchy_count' => array(
+        'type' => 'integer'
     )
 ));
 
 // 実行
-$list = execute($config['target_dir']);
+$list = execute($config['target_dir'], $config['sub_dir_hierarchy_count']);
 
 // 出力
 file_put_contents($config['output_path'], implode("\n", $list) . "\n");
@@ -65,7 +65,7 @@ file_put_contents($config['output_path'], implode("\n", $list) . "\n");
 echo 'complete!' . "\n";
 
 // 実行
-function execute($path)
+function execute($path, $sub_dir_count)
 {
     global $config;
 
@@ -80,11 +80,11 @@ function execute($path)
     $path_list = \aulta\scripts\getDirectoryAndFile($path);
 
     // サブディレクトリを調査するとき
-    if ($config['with_sub_dir']) {
+    if ($sub_dir_count > 0) {
 
         // サブディレクトリを再帰
         foreach ($path_list['dir'] as $dir_name) {
-            $a = execute($path . '/' . $dir_name);
+            $a = execute($path . '/' . $dir_name, ( $sub_dir_count - 1 ));
             $ret = array_merge($ret, $a);
         }
     }
