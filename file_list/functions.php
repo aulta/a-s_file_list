@@ -78,10 +78,12 @@ function checkConfig($config, $rules)
         // 空値を許可しないとき
         if (! $rule['empty']) {
             if (empty($value)) {
-                if (! (is_string($value) && $value === '0')) {
-                    if (! (is_int($value) && $value === 0)) {
-                        echo $config_key . ' は必須です。' . "\n";
-                        exit();
+                if ( ! is_bool($value)) {
+                    if (! (is_string($value) && $value === '0')) {
+                        if (! (is_int($value) && $value === 0)) {
+                            echo $config_key . ' は必須です。' . "\n";
+                            exit();
+                        }
                     }
                 }
             }
