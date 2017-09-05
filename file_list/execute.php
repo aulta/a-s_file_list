@@ -37,22 +37,37 @@ if (empty($config)) {
 
 // 設定内容のチェック
 $config = \aulta\scripts\checkConfig($config, array(
+
+    // 出力パス
     'output_path' => array(
         'type' => 'string',
         'value_type' => 'path',
         'exists_parent_dir' => true
     ),
+
+    // 取得対象
     'target_dir' => array(
         'type' => 'string',
         'value_type' => 'path',
         'exists_dir' => true
     ),
+
+    // 取得対象の拡張子（正規表現）
     'ext_pattern' => array(
         'type' => 'string'
     ),
+
+    // 取得するサブディレクトリの階層
     'sub_dir_hierarchy_count' => array(
         'type' => 'integer'
     ),
+
+    // 出力パターン
+    'output_pattern' => array(
+        'type' => 'string'
+    ),
+
+    // 取得対象のパスを出力に含めるか
     'with_target_dir' => array(
         'type' => 'bool'
     )
