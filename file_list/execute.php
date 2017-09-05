@@ -113,7 +113,7 @@ function execute($path, $sub_dir_count)
         } else {
 
             // フルパス
-            $ret[] = $path . DIRECTORY_SEPARATOR . $file_name;
+            $ret[] = $path . '/' . $file_name;
 
         }
 
