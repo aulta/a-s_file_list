@@ -52,11 +52,23 @@ $config = \aulta\scripts\checkConfig($config, array(
     ),
     'sub_dir_hierarchy_count' => array(
         'type' => 'integer'
+    ),
+    'with_target_dir' => array(
+        'type' => 'bool'
     )
 ));
 
 // 実行
 $list = execute($config['target_dir'], $config['sub_dir_hierarchy_count']);
+
+// 取得対象のパスを含めないとき
+if ( ! $config['with_target_dir']) {
+    foreach($list as $i => $line) {
+        if (strpos($line, $config['target_dir']) === 0) {
+            $list[$i] = mb_substr($line, mb_strlen($config['target_dir']));
+        }
+    }
+}
 
 // 出力
 file_put_contents($config['output_path'], implode("\n", $list) . "\n");
@@ -80,14 +92,16 @@ function execute($path, $sub_dir_count)
     $path_list = \aulta\scripts\getDirectoryAndFile($path);
 
     // サブディレクトリを調査するとき
-    if ($sub_dir_count > 0) {
-
-        // サブディレクトリを再帰
-        foreach ($path_list['dir'] as $dir_name) {
-            $a = execute($path . '/' . $dir_name, ( $sub_dir_count - 1 ));
-            $ret = array_merge($ret, $a);
-        }
+    if ($sub_dir_count <= 0) {
+        return $ret;
     }
+
+    // サブディレクトリを再帰
+    foreach ($path_list['dir'] as $dir_name) {
+        $a = execute($path . '/' . $dir_name, ( $sub_dir_count - 1 ));
+        $ret = array_merge($ret, $a);
+    }
+
 
     // 出力パターンがディレクトリ名のとき
     if ($config['output_pattern'] === 'dir_name') {

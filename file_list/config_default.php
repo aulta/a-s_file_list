@@ -21,6 +21,9 @@ $config = array(
 
     // 出力パターン
     'output_pattern' => 'full', // dir_name, file_name, full
+
+    // 取得対象のパスを出力に含めるか
+    'with_target_dir' => true,
 );
 
 
@@ -37,6 +40,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'with_target_dir' => true,
 );
 
 
@@ -49,6 +53,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'with_target_dir' => true,
 );
 
 
@@ -61,6 +66,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'with_target_dir' => true,
 );
 
 
@@ -73,6 +79,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'with_target_dir' => true,
 );
 
 
@@ -85,6 +92,7 @@ $config = array(
     'ext_pattern'             => '/(\.xls|\.xlsx)\z/',
     'sub_dir_hierarchy_count' => 999,
     'output_pattern'          => 'full', // dir_name, file_name, full
+    'with_target_dir' => true,
 );
 
 
